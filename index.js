@@ -13,8 +13,9 @@ app.listen(8080, function () {
 });
 
 var apikey = '',
+    privateKey = '',
     ts = new Date().getTime(),
-    hash = md5(ts + '' + ''), //md5
+    hash = md5(ts + privateKey + apikey), //md5
     url = 'http://gateway.marvel.com/v1/public/comics?ts=' + ts + '&apikey=' + apikey + '&' + 'hash=' + hash;
 
 request({url: url}, function (error, response, body) {
