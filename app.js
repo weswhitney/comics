@@ -8,7 +8,10 @@ var nconf = require('nconf');
 var winston = require('winston');
 
 winston.add(winston.transports.File, {"filename": "error.log", "level": "error"});
-winston.error("something went wrong");
+
+
+winston.profile("test");
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
