@@ -5,17 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nconf = require('nconf');
+var winston = require('winston');
+
+winston.add(winston.transports.File, {"filename": "error.log", "level": "error"});
+winston.error("something went wrong");
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-// example of the overide port
-//nconf.overrides({
-    //"http": {
-        //"port": 9000
-    //}
-//});
 
 nconf.argv({
     'p': {
@@ -33,6 +31,9 @@ nconf.defaults({
         "port": 3000
     }
 });
+
+winston.info('Initialized nconf');
+winston.info('HTTP Config: ', nconf.get("http"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
