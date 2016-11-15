@@ -12,7 +12,6 @@ winston.add(winston.transports.File, {"filename": "error.log", "level": "error"}
 
 winston.profile("test");
 
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 
