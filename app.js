@@ -7,10 +7,6 @@ var bodyParser = require('body-parser');
 var nconf = require('nconf');
 var winston = require('winston');
 
-winston.add(winston.transports.File, {"filename": "error.log", "level": "error"});
-
-
-winston.profile("test");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -31,8 +27,13 @@ nconf.file("config.json");
 nconf.defaults({
     "http": {
         "port": 3000
+    },
+    "logger": {
+      "fileLevel": "error"
     }
 });
+
+winston.add(winston.transports.File, {"filename": "error.log", "level": nconf.get("logger:fileLevel")});
 
 winston.info('Initialized nconf');
 winston.info('HTTP Config: ', nconf.get("http"));
