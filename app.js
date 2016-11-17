@@ -12,8 +12,16 @@ var api = require('marvel-api');
 var api = require('marvel-api');
 
 var marvel = api.createClient({
-  publicKey: 'my-public-key',
-  privateKey: 'my-private-key'
+  publicKey: 'c7451ee22269b93a6092c0bd22858506',
+  privateKey: 'b9951c3859c08629180ab9070c9967e9e43e828a'
+});
+
+marvel.characters.findAll(function(err, results) {
+  if (err) {
+    return console.error(err);
+  }
+
+  console.log(results);
 });
 
 var index = require('./routes/index');
