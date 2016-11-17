@@ -7,6 +7,14 @@ var bodyParser = require('body-parser');
 var nconf = require('nconf');
 var winston = require('winston');
 var nunjucks = require('nunjucks');
+var api = require('marvel-api');
+
+var api = require('marvel-api');
+
+var marvel = api.createClient({
+  publicKey: 'my-public-key',
+  privateKey: 'my-private-key'
+});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
