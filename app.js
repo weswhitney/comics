@@ -7,25 +7,12 @@ var bodyParser = require('body-parser');
 var nconf = require('nconf');
 var winston = require('winston');
 var nunjucks = require('nunjucks');
-var api = require('marvel-api');
 
-var api = require('marvel-api');
 
-var marvel = api.createClient({
-  publicKey: 'c7451ee22269b93a6092c0bd22858506',
-  privateKey: 'b9951c3859c08629180ab9070c9967e9e43e828a'
-});
-
-marvel.characters.findAll(function(err, results) {
-  if (err) {
-    return console.error(err);
-  }
-
-  console.log(results);
-});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var characters = require('./routes/characters');
 
 var app = express();
 
@@ -73,6 +60,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/characters', characters);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
