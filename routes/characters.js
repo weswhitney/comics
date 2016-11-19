@@ -17,12 +17,12 @@ router.get('/', function(req, res, next) {
       return console.error(err);
     }
 
-    var charJson = results;
-    // for (var i = 0; i < results.length; i++) {
-    //   charJson.push(results.data[i].name);
-    // }
-
-    res.render('characters', { charJson: charJson });
+    var charJson = [];
+    for (var i = 0; i < results.data.length; i++) {
+      charJson.push(results.data[i].name);
+    }
+// return console.log(results.data[0].name);
+    res.render('characters', { charJson: charJson.join(', ') });
 
   });
 });
