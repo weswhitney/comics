@@ -8,13 +8,12 @@ var nconf = require('nconf');
 var winston = require('winston');
 var nunjucks = require('nunjucks');
 
-
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 var characters = require('./routes/characters');
 
 var app = express();
+
 
 nunjucks.configure('views', {
     autoescape: true,
