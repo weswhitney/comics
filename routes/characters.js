@@ -2,11 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 var api = require('marvel-api');
+var dotenv = require('dotenv');
+dotenv.config();
 
 
 var marvel = api.createClient({
-  publicKey: 'c7451ee22269b93a6092c0bd22858506',
-  privateKey: 'b9951c3859c08629180ab9070c9967e9e43e828a'
+  publicKey: process.env.PUBLIC_KEY,
+  privateKey: process.env.PRIVATE_KEY
 });
 
 
