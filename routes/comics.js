@@ -12,21 +12,12 @@ var marvel = api.createClient({
 });
 
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  marvel.comics.findAll(function(err, results) {
-    if (err) {
-      return console.error(err);
-    }
-
-    var charJson = [];
-    for (var i = 0; i < results.data.length; i++) {
-      charJson.push(results.data[i]);
-    }
-
-    res.render('comics', { charJson: charJson.join(', ') });
-
+  marvel.comics.findAll()
+  .then(console.log)
+  .fail(console.error)
+  .done();
   });
-});
+
 
 module.exports = router;
