@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 
     var charJson = [];
     for (var i = 0; i < results.data.length; i++) {
-      charJson.push(results.data[i].thumbnail);
+      charJson.push(results.data[i].thumbnail.path + "." + results.data[i].thumbnail.extension);
     }
 
     res.render('characters', { charJson: charJson.join(', ') });
