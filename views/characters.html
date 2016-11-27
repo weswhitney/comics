@@ -1,5 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-{{charJson}}
+<h1>Posts</h1>
+<ul>
+{% for item in charJson %}
+  <li>
+    <img src={{ item }} alt="" />
+  </li>
+{% else %}
+  <li>This would display if the 'item' collection were empty</li>
+{% endfor %}
+</ul>
 {% endblock %}

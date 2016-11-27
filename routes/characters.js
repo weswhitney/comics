@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
       charJson.push(results.data[i].thumbnail.path + "." + results.data[i].thumbnail.extension);
     }
 
-    res.render('characters', { charJson: charJson.join(', ') });
+    res.render('characters', { charJson: charJson });
 
   });
 });
