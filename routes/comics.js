@@ -17,6 +17,9 @@ router.get('/', function(req, res, next) {
   .then(console.log)
   .fail(console.error)
   .done();
+
+  res.render('comics', { charJson: res });
+
   });
 
 
