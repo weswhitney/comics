@@ -13,14 +13,19 @@ var marvel = api.createClient({
 
 
 router.get('/', function(req, res, next) {
-  marvel.comics.findAll()
-  .then(console.log)
-  .fail(console.error)
-  .done();
+  marvel.comics.findAll(function (err, results) {
+    if (err) {
+      return console.error(err);
+    }
 
-  res.render('comics', { charJson: res });
+  var comics = [];
+  for (var i = 0; i < results.data.length; i++) {
+    comics.push(results.data[i].title);
+  }
+  res.render('comics', { comics: comics });
 
   });
+});
 
 
 module.exports = router;
