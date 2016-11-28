@@ -19,12 +19,12 @@ router.get('/', function(req, res, next) {
       return console.error(err);
     }
 
-    var charJson = [];
+    var characters = [];
     for (var i = 0; i < results.data.length; i++) {
-      charJson.push(results.data[i].thumbnail.path + "." + results.data[i].thumbnail.extension);
+      characters.push(results.data[i].thumbnail.path + "." + results.data[i].thumbnail.extension);
     }
 
-    res.render('characters', { charJson: charJson });
+    res.render('characters', { characters: characters });
 
   });
 });

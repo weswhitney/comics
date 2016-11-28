@@ -3,9 +3,9 @@
 {% block content %}
 <h1>Characters</h1>
 <ul>
-{% for thumbnail in charJson %}
+{% for character in characters %}
   <li>
-    <img src={{ thumbnail }} alt="" />
+    <img src={{ character }} alt="" />
   </li>
 {% else %}
   <li>This would display if the 'item' collection were empty</li>
