@@ -47,7 +47,9 @@ winston.info('Initialized nconf');
 winston.info('HTTP Config: ', nconf.get("http"));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); //__dirname global variable that displays the name of the current folder where app.js is
+
+// set method designed to help modify application settings
 app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
