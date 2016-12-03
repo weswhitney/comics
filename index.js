@@ -1,7 +1,7 @@
 // var express = require('express');
 // var request = require('request'); // i put this in for a simple request.
 // var md5 = require('md5');
-// //this app will let us handle any incoming requests
+// this app will let us handle any incoming requests
 // var app = express();
 //
 // app.get("/", function (req, res) {
