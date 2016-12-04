@@ -9,7 +9,6 @@ var winston = require('winston');
 var nunjucks = require('nunjucks');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var characters = require('./routes/characters');
 var comics = require('./routes/comics');
 
@@ -64,7 +63,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/characters', characters);
 app.use('/comics', comics);
 
