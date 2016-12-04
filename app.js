@@ -52,6 +52,9 @@ app.set('views', path.join(__dirname, 'views')); //__dirname global variable tha
 // set method designed to help modify application settings
 app.set('view engine', 'html');
 
+// local variable that can be used on any page.
+app.locals.pageTitle = "Marvel Comics";
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

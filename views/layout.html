@@ -5,10 +5,11 @@
     {% include "partials/page/header.html" %}
 
     <div class="container">
+      <h1>{{ pageTitle }}</h1>
       {% block content %}
       {% endblock %}
     </div><!-- container -->
-    
+
     {% include "partials/page/jsdefaults.html" %}
     {% include "partials/page/footer.html" %}
   </body>
