@@ -15,6 +15,7 @@ var marvel = api.createClient({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   marvel.characters.findAll(function(err, results) {
+    console.log(results);
     if (err) {
       return console.error(err);
     }
@@ -23,7 +24,7 @@ router.get('/', function(req, res, next) {
     for (var i = 0; i < results.data.length; i++) {
       characters.push(results.data[i].thumbnail.path + "." + results.data[i].thumbnail.extension);
     }
-// pass information to your template by sending along an extra object with your render method. 
+// pass information to your template by sending along an extra object with your render method.
     res.render('characters', { characters: characters });
 
   });
