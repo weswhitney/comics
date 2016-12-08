@@ -12,7 +12,6 @@ var marvel = api.createClient({
 });
 
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   marvel.characters.findAll(function(err, results) {
     console.log(results);
